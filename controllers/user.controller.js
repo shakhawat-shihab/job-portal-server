@@ -1,4 +1,4 @@
-const { getUserService, signUpService, logInService, findUserByEmailService, findUserByToken } = require("../services/user.service");
+const { getUserService, signUpService, logInService, findUserByEmailService, findUserByToken, findUserByEmailExceptPasswordService } = require("../services/user.service");
 const User = require("../models/User");
 const { generateToken } = require("../utils/token");
 // const { sendMailWithGmail } = require("../utils/email");
@@ -23,8 +23,6 @@ exports.getUser = async (req, res, next) => {
 
 exports.signUp = async (req, res, next) => {
     try {
-
-
         const user = await signUpService(req.body);
         const token = user.generateConfirmationToken();
         await user.save({ validateBeforeSave: false });
@@ -126,7 +124,7 @@ exports.logIn = async (req, res, next) => {
 exports.getMe = async (req, res, next) => {
     try {
         const { user } = req;
-        const userAllInfo = await findUserByEmailService(user?.email);
+        const userAllInfo = await findUserByEmailExceptPasswordService(user?.email);
         res.status(200).json({
             status: "success",
             message: "Successfully logged in",

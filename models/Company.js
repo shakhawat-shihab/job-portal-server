@@ -27,7 +27,7 @@ const companySchema = mongoose.Schema({
         type: String,
         validate: [validator.isURL, "Please provide a valid url"]
     },
-    location: {
+    address: {
         type: String,
         required: true,
         enum: {
@@ -39,7 +39,7 @@ const companySchema = mongoose.Schema({
         type: String,
         validate: [validator.isURL, "Please provide a url"]
     },
-    hiringManagers: {
+    hiringManagers: [{
         name: {
             type: String,
             required: true,
@@ -53,7 +53,7 @@ const companySchema = mongoose.Schema({
             ref: "User",
             required: true,
         }
-    },
+    }],
     jobs: [{
         type: ObjectId,
         ref: "Job"

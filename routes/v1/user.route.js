@@ -7,6 +7,6 @@ router.get('/', userController.getUser);
 router.get("/signup/confirmation/:token", userController.confirmEmail);
 router.post('/signup', userController.signUp);
 router.post('/login', userController.logIn);
-// router.get('/me', verifyToken, userController.getMe);
+router.get('/me', verifyToken, userController.getMe);
 
 module.exports = router;

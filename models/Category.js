@@ -19,11 +19,11 @@ const categorySchema = mongoose.Schema({
     },
     jobs: [{
         type: ObjectId,
-        ref: "Job"
+        ref: "job"
     }],
 }, {
     timestamps: true
 })
 
-const Category = mongoose.model('Category', categorySchema)
+const Category = mongoose.model('category', categorySchema)
 module.exports = Category;

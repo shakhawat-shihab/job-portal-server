@@ -6,7 +6,11 @@
         "firstName": "Shakhawat ",
         "lastName": "Shihab",
         "contactNumber": "01849258038",
-        "status": "active"
+        "status": "active",
+        "company": {
+            "name": "O&M Solutions Bangladesh Limited",
+            "id": "63456e3622df05af51e6b292"
+        }
     },
     {
         "email": "tanvir@gmail.com",
@@ -15,6 +19,42 @@
         "firstName": "Tanvir ",
         "lastName": "Ahmed",
         "contactNumber": "01734252194",
+        "status": "active"
+    },
+    {
+        "email": "sonda@gmail.com",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "firstName": "Israt ",
+        "lastName": "jahan",
+        "contactNumber": "013423564",
+        "status": "active"
+    },
+    {
+        "email": "Jubair@gmail.com",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "firstName": "Jubair ",
+        "lastName": "Ahmed",
+        "contactNumber": "01334634194",
+        "status": "active"
+    },
+    {
+        "email": "jannat@gmail.com",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "firstName": "Fatema ",
+        "lastName": "Akter",
+        "contactNumber": "0143576324",
+        "status": "active"
+    },
+    {
+        "email": "admin@gmail.com",
+        "password": "Admin123#",
+        "confirmPassword": "Admin123#",
+        "firstName": "Fahim ",
+        "lastName": "Vaii ",
+        "contactNumber": "0192521324",
         "status": "active"
     }
 ]

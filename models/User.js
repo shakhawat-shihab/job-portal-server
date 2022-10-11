@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
+const { ObjectId } = mongoose.Schema.Types;
 const bcrypt = require('bcrypt');
 const crypto = require("crypto");
 const userSchema = mongoose.Schema({
@@ -17,6 +18,7 @@ const userSchema = mongoose.Schema({
         minLength: 3,
         maxLength: 100,
     },
+
     email: {
         type: String,
         trim: true,
@@ -57,7 +59,18 @@ const userSchema = mongoose.Schema({
         enum: ['admin', 'hiring-manager', 'candidate'],
         default: 'candidate'
     },
-
+    company: {
+        name: {
+            type: String,
+            lowercase: true,
+            // required: true,
+        },
+        id: {
+            type: ObjectId,
+            ref: "company",
+            // required: true,
+        }
+    },
     contactNumber: {
         type: String,
         validate: [validator.isMobilePhone, "Please provide a mobile number"]
@@ -71,6 +84,10 @@ const userSchema = mongoose.Schema({
         enum: ['active', 'inactive', 'blocked'],
         default: 'inactive'
     },
+    appliedJob: [{
+        type: ObjectId,
+        ref: "job"
+    }],
     confirmationToken: String,
     confirmationTokenExpires: Date,
 
@@ -110,6 +127,6 @@ userSchema.methods.generateConfirmationToken = function () {
     return token;
 };
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("user", userSchema);
 
 module.exports = User;

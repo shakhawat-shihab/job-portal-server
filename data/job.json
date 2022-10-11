@@ -1,0 +1,70 @@
+[
+    {
+        "name": "Executive/ Senior Executive (Retail Sales)",
+        "responsibilities": [
+            "Explore new business opportunities & appoint new distributors.",
+            "To increase sales of raw chicken and ambient frozen food products.",
+            "Achieve monthly and yearly sales target as per annual operation plan of the territory."
+        ],
+        "company": {
+            "name": "AFTAB BAHUMUKHI FARMS LIMITED",
+            "id": "63455b6d22df05af51e6b281"
+        },
+        "category": "agro",
+        "location": "rajshahi",
+        "workPlace": "onsite",
+        "skillsNedded": [
+            "Must be familiar with order collection through multiple e-commerce platforms.",
+            "Good knowledge about showroom/outlet management."
+        ],
+        "salary": 37000,
+        "vacancy": 3,
+        "deadLine": "December 20, 2024"
+    },
+    {
+        "name": "Electrical Engineer",
+        "responsibilities": [
+            " Assist in different types of design related works in power & infrastructure sectors.",
+            "Commissioning of MV and HV Substations.",
+            "Overseeing procurement of Protective relays, transformer, energy meter and automation solutions. "
+        ],
+        "company": {
+            "name": "O&M Solutions Bangladesh Limited",
+            "id": "63456e3622df05af51e6b292"
+        },
+        "category": "Engineer",
+        "location": "dhaka",
+        "workPlace": "onsite",
+        "skillsNedded": [
+            "Bachelor Degree in Electrical/Mechanical Engineering from Public University preferably BUET/CUET/RUET/KUET.",
+            "Good knowledge in Electrical and automation software is expected."
+        ],
+        "salary": 50000,
+        "vacancy": 2,
+        "deadLine": "March 2, 2023"
+    },
+    {
+        "name": "Civil Engineer (Power plant Project)",
+        "responsibilities": [
+            "Assist the Project Manager/Deputy Project Manager in various assignments.",
+            "Commissioning of MV and HV Substations.",
+            "Review, comment and approve the engineering design including vendor/supplier drawings by and from the EPC Contractor",
+            "Overseeing procurement of Protective relays, transformer, energy meter and automation solutions. "
+        ],
+        "company": {
+            "name": "O&M Solutions Bangladesh Limited",
+            "id": "63456e3622df05af51e6b292"
+        },
+        "category": "Engineer",
+        "location": "barishal",
+        "workPlace": "onsite",
+        "skillsNedded": [
+            "Bachelor Degree in Electrical/Mechanical Engineering from Public University",
+            "Should have prior experience in design review and construction supervision of civil works.",
+            "Good knowledge in Electrical and automation software is expected."
+        ],
+        "salary": 45000,
+        "vacancy": 3,
+        "deadLine": "May 20, 2024"
+    }
+]

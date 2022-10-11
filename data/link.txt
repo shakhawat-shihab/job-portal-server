@@ -1,0 +1,1 @@
+http://localhost:5000/api/v1/user/signUp/confirmation/392f44ea0befa5fc5b97e19b600493386b923a75d9304e8f4ac6f3152e553f61

@@ -12,25 +12,52 @@ const jobSchema = mongoose.Schema({
         minLength: [5, "Name must be at least 5 characters."],
         maxLenght: [150, "Name is too large"],
     },
-    description: {
+    responsibilities: [{
         type: String,
-        required: true
-    },
+        required: true,
+    }],
     company: {
         name: {
             type: String,
+            lowercase: true,
             required: true,
         },
-        email: {
-            type: String,
-            required: true,
-        },
+
         id: {
             type: ObjectId,
-            ref: "Company",
+            ref: "company",
             required: true,
         }
     },
+    // application: [{
+    //     // name: String,
+    //     // candidateId: {
+    //     //     type: ObjectId,
+    //     //     ref: "User",
+    //     //     required: true,
+    //     // },
+    //     applicationId: {
+    //         type: ObjectId,
+    //         ref: "Application",
+    //         required: true,
+    //     }
+    // }],
+    // candidate: [{
+    //     candidateId: {
+    //         type: String,
+    //         ref: "user",
+    //         required: true,
+    //     },
+    // }],
+    application: [{
+        type: ObjectId,
+        ref: "application"
+    }],
+    candidate: [{
+        type: ObjectId,
+        ref: "user"
+    }],
+
     category: {
         type: String,
         required: true
@@ -49,7 +76,7 @@ const jobSchema = mongoose.Schema({
         type: String,
         default: "offline",
         enum: {
-            values: ["online", "offline"],
+            values: ["online", "onsite"],
             message: "{VALUE} is not a valid division"
         }
     },
@@ -57,7 +84,7 @@ const jobSchema = mongoose.Schema({
         type: String,
         required: true,
     }],
-    HiringManager: {
+    hiringManager: {
         name: {
             type: String,
             required: true,
@@ -68,7 +95,7 @@ const jobSchema = mongoose.Schema({
         },
         id: {
             type: ObjectId,
-            ref: "User",
+            ref: "user",
             required: true,
         }
     },
@@ -76,7 +103,8 @@ const jobSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    vecancy: {
+    experience: String,
+    vacancy: {
         type: Number,
         default: 1
     },
@@ -97,6 +125,6 @@ jobSchema.pre('save', function (next) {
 })
 
 
-const Jobs = mongoose.model('jobs', jobSchema)
+const Job = mongoose.model('job', jobSchema)
 
-module.exports = Jobs;
+module.exports = Job;

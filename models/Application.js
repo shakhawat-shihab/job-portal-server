@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
-const validator = require('validator')
 const { ObjectId } = mongoose.Schema.Types
+const validator = require('validator')
+
 
 
 const applicationSchema = mongoose.Schema({
@@ -11,23 +12,23 @@ const applicationSchema = mongoose.Schema({
         },
         email: {
             type: String,
-            required: true,
+            // required: true,
         },
         id: {
             type: ObjectId,
-            ref: "User",
+            ref: "user",
             required: true,
         }
     },
     job: {
-        name: {
-            type: String,
-            required: true,
-        },
-        salary: {
-            type: Number,
-            required: true,
-        },
+        // name: {
+        //     type: String,
+        //     required: true,
+        // },
+        // salary: {
+        //     type: Number,
+        //     required: true,
+        // },
         id: {
             type: ObjectId,
             ref: "job",
@@ -51,5 +52,5 @@ const applicationSchema = mongoose.Schema({
     timestamps: true
 })
 
-const Application = mongoose.model('Application', applicationSchema)
+const Application = mongoose.model('application', applicationSchema)
 module.exports = Application;

@@ -16,7 +16,12 @@ exports.logInService = async (logInInfo) => {
 }
 
 exports.findUserByEmailService = async (email) => {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email })
+    return user;
+}
+exports.findUserByEmailExceptPasswordService = async (email) => {
+    const user = await User.findOne({ email })
+        .select('-password');
     return user;
 }
 
