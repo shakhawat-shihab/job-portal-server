@@ -1,0 +1,20 @@
+[
+    {
+        "email": "shihab@gmail.com",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "firstName": "Shakhawat ",
+        "lastName": "Shihab",
+        "contactNumber": "01849258038",
+        "status": "active"
+    },
+    {
+        "email": "tanvir@gmail.com",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "firstName": "Tanvir ",
+        "lastName": "Ahmed",
+        "contactNumber": "01734252194",
+        "status": "active"
+    }
+]
