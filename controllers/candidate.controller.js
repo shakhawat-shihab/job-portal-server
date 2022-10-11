@@ -1,4 +1,4 @@
-const { getProductsService, getJobByIdService, applyForJobService } = require("../services/candidate.service");
+const { getProductsService, getJobByIdService, applyForJobService, getTopPaidJobService, getTopAppliedJobService } = require("../services/candidate.service");
 
 exports.getJob = async (req, res, next) => {
     try {
@@ -42,7 +42,6 @@ exports.getJob = async (req, res, next) => {
         }
 
         const jobs = await getProductsService(filters, queries);
-
         res.status(200).json({
             status: "success",
             message: "Successfully loaded the jobs",
@@ -53,6 +52,44 @@ exports.getJob = async (req, res, next) => {
         res.status(400).json({
             status: "fail",
             message: "Failed to load the jobs",
+            error: error.message,
+        });
+    }
+}
+
+
+exports.getTopPaidJob = async (req, res, next) => {
+    try {
+        const { limit = 10 } = req.query;
+        const jobs = await getTopPaidJobService(limit);
+        res.status(200).json({
+            status: "success",
+            message: "Successfully loaded the job",
+            data: jobs
+        });
+
+    } catch (error) {
+        res.status(400).json({
+            status: "fail",
+            message: "Failed to load the job",
+            error: error.message,
+        });
+    }
+}
+exports.getTopAppliedJob = async (req, res, next) => {
+    try {
+        const { limit = 10 } = req.query;
+        const jobs = await getTopAppliedJobService(limit);
+        res.status(200).json({
+            status: "success",
+            message: "Successfully loaded the job",
+            data: jobs
+        });
+
+    } catch (error) {
+        res.status(400).json({
+            status: "fail",
+            message: "Failed to load the job",
             error: error.message,
         });
     }

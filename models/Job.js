@@ -111,7 +111,12 @@ const jobSchema = mongoose.Schema({
     deadLine: {
         type: Date,
         required: true
-    }
+    },
+    applyCount: {
+        type: Number,
+        default: 0
+    },
+
 }, {
     timestamps: true,
 })

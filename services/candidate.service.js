@@ -17,6 +17,21 @@ exports.getProductsService = async (filters, queries) => {
     return { totalJobs, page, jobs };
 };
 
+exports.getTopPaidJobService = async (limit) => {
+    // console.log(queries)
+    const jobs = await Job.find()
+        .limit(limit)
+        .sort('-salary')
+    return jobs;
+};
+exports.getTopAppliedJobService = async (limit) => {
+    // console.log(queries)
+    const jobs = await Job.find()
+        .limit(limit)
+        .sort('-applyCount')
+    return jobs;
+};
+
 exports.getJobByIdService = async (id) => {
     // const jobs = await Job.findById(id).populate('hiringManager.id');
     const jobs = await Job.findById(id).populate({ path: 'hiringManager.id', select: '-password' });
@@ -54,7 +69,7 @@ exports.applyForJobService = async (jobId, candidate) => {
     else if (alreadyApplied.length === 0) {
         // const app = await Application.create(application);
         const app = await Application.create(obj);
-        const result = await Job.updateOne({ _id: jobId }, { $push: { application: app._id, candidate: candidate.id } });
+        const result = await Job.updateOne({ _id: jobId }, { $push: { application: app._id, candidate: candidate.id }, $inc: { applyCount: 1 } });
         await User.updateOne({ _id: candidate.id }, { $push: { appliedJob: jobId } });
         return result;
     }

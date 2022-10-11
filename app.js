@@ -19,7 +19,7 @@ app.use(cors());
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/hiring-manager", verifyToken, hiringManagerRoute);
 app.use("/api/v1/candidate", candidateRoute);
-app.use("/api/v1/admin", adminRoute);
+app.use("/api/v1/admin", verifyToken, adminRoute);
 
 
 app.get("/", (req, res) => {
