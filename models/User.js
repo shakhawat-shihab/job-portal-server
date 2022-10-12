@@ -118,6 +118,7 @@ userSchema.methods.comparePassword = function (planePassword, hashPassword) {
     return isPasswordValid
 }
 
+// for mail verification
 userSchema.methods.generateConfirmationToken = function () {
     const token = crypto.randomBytes(32).toString("hex");
     this.confirmationToken = token;

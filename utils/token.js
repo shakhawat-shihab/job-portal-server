@@ -6,7 +6,7 @@ exports.generateToken = (userInfo) => {
         email: userInfo?.email,
         role: userInfo?.role
     }
-    // crypto.randomBytes(64).toString('hex')
+    // crypto.randomBytes(64).toString('hex')  = process.env.TOKEN_SECRET
     const token = jwt.sign(payload, process.env.TOKEN_SECRET, {
         expiresIn: '10h'
     })
