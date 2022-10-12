@@ -65,6 +65,7 @@ const jobSchema = mongoose.Schema({
     location: {
         type: String,
         required: true,
+        lowercase: true,
         enum: {
             values: ["dhaka", "chattogram", "rajshahi", "sylhet", "khulna", "barishal", "rangpur", "mymensingh"],
             message: "{VALUE} is not a valid division"

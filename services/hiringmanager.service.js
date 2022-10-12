@@ -5,7 +5,9 @@ exports.createJobService = async (job) => {
     return result;
 }
 exports.getJobByCurrentUserService = async (id) => {
-    const jobs = await Job.find({ 'hiringManager.id': id }).populate({ path: 'hiringManager.id', select: '-password -role' });
+    const jobs = await Job.find({ 'hiringManager.id': id })
+        .select('-application -candidate')
+        .populate({ path: 'hiringManager.id', select: '-password -role -appliedJob' });
     const jobCount = await Job.countDocuments({ 'hiringManager.id': id })
     return { jobs, jobCount };
 }

@@ -66,5 +66,29 @@
         "salary": 45000,
         "vacancy": 3,
         "deadLine": "May 20, 2024"
+    },
+    {
+        "name": "Executive/ Sr. Executive - Event Management",
+        "responsibilities": [
+            "Event planning, design, budgeting within time limits and organize conferences, seminars and exhibitions etc",
+            "Organize facilities and manage all event's details such as decor, catering, entertainment, transportation, location, invitee list, special guests, equipment, promotional material etc. ",
+            "Attend event to oversee activities and ensure details are handled as planned. "
+        ],
+        "company": {
+            "name": "Channel 24",
+            "id": "634719dec9fd6033257fd74d"
+        },
+        "category": "Media",
+        "location": "Dhaka",
+        "workPlace": "onsite",
+        "skillsNedded": [
+            "Age 25 to 40 years ",
+            "Experience in event organization or management or related work experience is an added advantage .",
+            "Strong communication skills - written and verbal is a must",
+            "Positive and outgoing personality ."
+        ],
+        "salary": 35000,
+        "vacancy": 1,
+        "deadLine": "May 2, 2024"
     }
 ]
