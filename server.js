@@ -4,13 +4,11 @@ const dotenv = require("dotenv").config();
 // database connection
 mongoose.connect(process.env.DATABASE_LOCAL).then(() => {
     console.log(`Database connection is successful`);
-})
-
+},
+    err => { console.log(`Failed to connect`, err); }
+)
 
 const app = require("./app");
-
-
-
 
 // server
 const port = process.env.PORT || 8080;
