@@ -5,12 +5,12 @@ exports.createJobService = async (job) => {
     return result;
 }
 exports.getJobByCurrentUserService = async (id) => {
-    const jobs = await Job.find({ 'hiringManager.id': id }).populate('hiringManager.id');
+    const jobs = await Job.find({ 'hiringManager.id': id }).populate({ path: 'hiringManager.id', select: '-password -role' });
     const jobCount = await Job.countDocuments({ 'hiringManager.id': id })
     return { jobs, jobCount };
 }
 exports.getJobByIdService = async (id) => {
-    const jobs = await Job.findById(id).populate('candidate');
+    const jobs = await Job.findById(id).populate({ path: 'candidate', select: '-password -appliedJob -role' });
     return jobs;
 }
 exports.updateJobByIdService = async (id, job) => {
