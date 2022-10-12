@@ -38,7 +38,7 @@ exports.getJobByIdService = async (id) => {
     return jobs;
 }
 
-exports.applyForJobService = async (jobId, candidate) => {
+exports.applyForJobService = async (jobId, candidate, resumeLink) => {
 
     const alreadyApplied = await Job.find({ _id: jobId, candidate: { $in: [ObjectId(candidate.id)] } });
     const job = await Job.findOne({ _id: jobId });
@@ -55,7 +55,8 @@ exports.applyForJobService = async (jobId, candidate) => {
         company: {
             name: job.company['name'],
             id: job.company['id']
-        }
+        },
+        resume: resumeLink
     }
     // console.log(obj)
 

@@ -19,7 +19,11 @@
         "firstName": "Tanvir ",
         "lastName": "Ahmed",
         "contactNumber": "01734252194",
-        "status": "active"
+        "status": "active",
+        "company": {
+            "name": "AFTAB BAHUMUKHI FARMS LIMITED",
+            "id": "63456e3622df05af51e6b292"
+        }
     },
     {
         "email": "sonda@gmail.com",

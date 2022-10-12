@@ -1,4 +1,5 @@
 const { getProductsService, getJobByIdService, applyForJobService, getTopPaidJobService, getTopAppliedJobService } = require("../services/candidate.service");
+// const cloudinary = require('cloudinary').v2;
 
 exports.getJob = async (req, res, next) => {
     try {
@@ -121,8 +122,15 @@ exports.applyForJob = async (req, res, next) => {
     try {
         const jobId = req.params.id;
         const candidate = req.user;
-        const result = await applyForJobService(jobId, candidate);
-        // console.log(result)
+        const resumeLink = req?.file?.path;
+        if (!resumeLink) {
+            return res.status(400).json({
+                status: "fail",
+                message: "Please attach your resume in pdf format",
+            });
+        }
+
+        const result = await applyForJobService(jobId, candidate, resumeLink);
 
         if (result?.modifiedCount) {
             return res.status(200).json({
@@ -146,6 +154,29 @@ exports.applyForJob = async (req, res, next) => {
         res.status(400).json({
             status: "fail",
             message: "Failed to apply to the job",
+            error: error.message,
+        });
+    }
+}
+
+
+exports.uploadFile = async (req, res, next) => {
+    try {
+        // const uploadFile = await cloudinary.v2.uploader.upload(req.file.path,
+        //     {
+        //         folder: 'resumeForJob',
+        //         resource_type: "auto"
+        //     },
+        //     (error, result) => {
+        //         console.log(result, error);
+        //     });
+        res.status(200).json({
+            file: req.file
+        });
+    } catch (error) {
+        res.status(400).json({
+            status: "fail",
+            message: "can't upload",
             error: error.message,
         });
     }

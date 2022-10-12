@@ -46,6 +46,10 @@ const applicationSchema = mongoose.Schema({
             required: true,
         }
     },
+    resume: {
+        type: String,
+        required: [true, "Please attach your resume in pdf format"]
+    }
 
 
 }, {
