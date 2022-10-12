@@ -19,7 +19,8 @@ exports.getJobService = async (filters, queries) => {
 
 exports.getTopPaidJobService = async (limit) => {
     // console.log(queries)
-    const jobs = await Job.find({}).select('-application -candidate')
+    const jobs = await Job.find({})
+        .select('-application -candidate')
         .limit(limit)
         .sort('-salary')
     return jobs;
@@ -34,7 +35,9 @@ exports.getTopAppliedJobService = async (limit) => {
 
 exports.getJobByIdService = async (id) => {
     // const jobs = await Job.findById(id).populate('hiringManager.id');
-    const jobs = await Job.findById(id).populate({ path: 'hiringManager.id', select: '-password' });
+    const jobs = await Job.findById(id)
+        .select('-application -candidate')
+        .populate({ path: 'hiringManager.id', select: '-password -appliedJob' });
     return jobs;
 }
 
