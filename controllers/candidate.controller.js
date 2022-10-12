@@ -1,4 +1,4 @@
-const { getProductsService, getJobByIdService, applyForJobService, getTopPaidJobService, getTopAppliedJobService } = require("../services/candidate.service");
+const { getJobByIdService, applyForJobService, getTopPaidJobService, getTopAppliedJobService, getJobService } = require("../services/candidate.service");
 // const cloudinary = require('cloudinary').v2;
 
 exports.getJob = async (req, res, next) => {
@@ -20,10 +20,12 @@ exports.getJob = async (req, res, next) => {
         }
 
         if (req.query.fields) {
-            const fields = req.query.fields.split(',').join(' ')
-            console.log(fields);
+            let fields = req.query.fields.split(',').join(' ');
+            console.log('fields = ', fields);
             queries.fields = fields
         }
+
+
 
         if (req.query.page) {
             const { page = 1, limit = 5 } = req.query;      // "3" "5"
@@ -42,7 +44,7 @@ exports.getJob = async (req, res, next) => {
             queries.limit = 10;
         }
 
-        const jobs = await getProductsService(filters, queries);
+        const jobs = await getJobService(filters, queries);
         res.status(200).json({
             status: "success",
             message: "Successfully loaded the jobs",

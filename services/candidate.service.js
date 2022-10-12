@@ -4,7 +4,7 @@ const Job = require("../models/Job");
 const Application = require("../models/Application");
 const User = require('../models/User');
 
-exports.getProductsService = async (filters, queries) => {
+exports.getJobService = async (filters, queries) => {
     // console.log(queries)
     const jobs = await Job.find(filters)
         .skip(queries.skip)
@@ -19,7 +19,7 @@ exports.getProductsService = async (filters, queries) => {
 
 exports.getTopPaidJobService = async (limit) => {
     // console.log(queries)
-    const jobs = await Job.find()
+    const jobs = await Job.find({}).select('-application -candidate')
         .limit(limit)
         .sort('-salary')
     return jobs;

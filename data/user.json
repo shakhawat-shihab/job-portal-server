@@ -60,5 +60,14 @@
         "lastName": "Vaii ",
         "contactNumber": "0192521324",
         "status": "active"
+    },
+    {
+        "email": "asif@gmail.com",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "firstName": "Asif ",
+        "lastName": "Rahman ",
+        "contactNumber": "014388324",
+        "status": "active"
     }
 ]

@@ -1,7 +1,8 @@
 const { getUserService, signUpService, logInService, findUserByEmailService, findUserByToken, findUserByEmailExceptPasswordService } = require("../services/user.service");
 const User = require("../models/User");
 const { generateToken } = require("../utils/token");
-// const { sendMailWithGmail } = require("../utils/email");
+const { sendMailWithGmail } = require("../utils/email");
+
 
 exports.getUser = async (req, res, next) => {
     try {
@@ -27,15 +28,15 @@ exports.signUp = async (req, res, next) => {
         const token = user.generateConfirmationToken();
         await user.save({ validateBeforeSave: false });
 
-        // const mailData = {
-        //     to: [user.email],
-        //     subject: "Verify your Account",
-        //     text: `Thank you for creating your account. Please confirm your account here: ${req.protocol
-        //         }://${req.get("host")}${req.originalUrl}/confirmation/${token}`,
+        const mailData = {
+            to: [user.email],
+            subject: "Verify your Account For ACC Job Portal",
+            text: `Thank you for creating your account. Please confirm your account here: ${req.protocol
+                }://${req.get("host")}${req.originalUrl}/confirmation/${token}`,
 
-        // };
+        };
         // // await sendMailWithMailGun(mailData);
-        // await sendMailWithGmail(mailData)
+        await sendMailWithGmail(mailData)
 
         res.status(200).json({
             status: "success",
